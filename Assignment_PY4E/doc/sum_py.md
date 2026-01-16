@@ -77,7 +77,7 @@
 
 
 
-## Python execution process
+# Python execution process
 
 1. **Input devices** generate an input event (e.g. user runs a program),
     which is delivered to the **Operating System** via interrupts.
@@ -105,3 +105,75 @@
 
 
 
+# Variables&Expression
+
+
+
+### intro
+
+#### Assignment Statement
+
+an assignment statement is a process that assigns a value to a variable, not just a statement on its own.
+
+#### Expression
+
+assume x is a variable.
+
+Expressions can manipulate variables, such as adding one to x and storing the result back in x.
+
+#### Reserved word
+
+A reserved word in Python, also known as a keyword, is a word that has a special meaning in the language and cannot be used for any other purpose, such as naming variables or functions. 
+
+|        |          |         |          |        |
+| ------ | -------- | ------- | -------- | ------ |
+| False  | await    | else    | import   | pass   |
+| None   | break    | except  | in       | raise  |
+| True   | class    | finally | is       | return |
+| and    | continue | for     | lambda   | try    |
+| as     | def      | from    | nonlocal | while  |
+| assert | del      | global  | not      | with   |
+| async  | elif     | if      | or       | yield  |
+
+
+
+
+
+# Program Steps
+
+**Sequential Steps**
+
+- **Def:** The most basic pattern is sequential, where instructions are executed one after another.
+- ex: An example is provided with a simple Python program that assigns a value to a variable and prints it.
+
+**Conditional Steps**
+
+- **Def:** Conditional programming involves using "if" statements to execute code based on certain conditions.
+- A flowchart illustrates how the program evaluates conditions and executes corresponding statements.
+
+**Looping Steps**
+
+- The repeat pattern allows for executing a block of code multiple times using loops like "while" and "for."
+- The explanation includes how to avoid infinite loops by managing iteration variables, ensuring the loop terminates correctly.
+
+
+
+## Terminology
+
+**iteration variable:** n is iteration variable
+
+~~~python
+n=5
+while n>0:
+    print(n)
+    n=n-1
+print("Over")
+~~~
+
+
+
+**Nesting** （嵌套）a loop or a conditional statement inside another loop or conditional statement. This allows you to create more complex behaviors in your programs.
+
+
+
+**indented:** 缩进 In Python, the way you can tell that a sequential code is when it's not being indented.
