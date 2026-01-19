@@ -1,4 +1,8 @@
-# Intro Hardware
+# 1. Intro 
+
+
+
+## 1.1 Hardware basic
 
 
 
@@ -26,7 +30,9 @@
 
 ------
 
-### **Operating System (OS)**
+
+
+## 1.2 **Operating System (OS)**
 
 - A privileged program that:
   - Loads programs from disk into RAM
@@ -39,7 +45,9 @@
 
 ------
 
-### **Python Interpreter (CPython)**
+## 1.3 Python Interpreter&PVM
+
+**Interpreter: **
 
 - A native executable program (machine code)
 - Responsibilities:
@@ -47,9 +55,7 @@
   - Execute bytecode via the PVM
 - Stored on disk, loaded into RAM, executed by CPU
 
-------
-
-### **PVM (Python Virtual Machine)**
+**PVM:**
 
 - A component **inside** the Python interpreter
 - Interprets Python bytecode by:
@@ -57,17 +63,15 @@
   - Selecting which interpreter machine-code paths execute
 - Not hardware, not OS, not kernel code
 
-------
 
-### **Python Script (.py)**
+
+**Python Script (.py)**
 
 - Text source code
 - Stored on disk
 - Loaded into RAM as data
 
-------
-
-### **Input / Output Devices**
+**Input / Output Devices**
 
 - Input: keyboard, mouse, etc. (send data to system)
 - Output: screen, printer, etc. (receive data from system)
@@ -77,13 +81,12 @@
 
 
 
-# Python execution process
+## 1.4 Python execution process
 
 1. **Input devices** generate an input event (e.g. user runs a program),
     which is delivered to the **Operating System** via interrupts.
 
 2. **The Operating System (in RAM)**:
-
    1. loads the **Python interpreter executable** from secondary storage into RAM;
    2. loads the **Python script (.py file)** from secondary storage into RAM;
    3. creates a process and schedules it on the CPU.
@@ -105,23 +108,64 @@
 
 
 
-# Variables&Expression
+# 2. Language basic & Syntax
 
 
 
-### intro
+## 2.1 Variables&Constants
 
-#### Assignment Statement
+### Constants:
 
-an assignment statement is a process that assigns a value to a variable, not just a statement on its own.
+- Fixed values such as numbers, letters, and strings
+- String constants use single quotes (') or double quotes (")
+- Numeric constants are as you expect
 
-#### Expression
+### Variables:
 
-assume x is a variable.
+- A variable is a named place in the memory where a programmer can store data and later retrieve the data using the variable "name"
+- Programmers get to choose the names of the variables
+- You can change the contents of a variable in a later statement
 
-Expressions can manipulate variables, such as adding one to x and storing the result back in x.
+### Variable Naming rule
 
-#### Reserved word
+1. **Must start with a letter or underscore**
+   - Valid: `name`, `_value`, `data1`
+   - Invalid: `1data`, `9count`
+2. **Can only contain letters, numbers, and underscores**
+   - Valid: `user_name`, `value2`, `_private_var`
+   - Invalid: `user-name`, `value@2`, `my.variable`
+3. **Case-sensitive**
+   - `Name`, `name`, and `NAME` are three different variables
+4. **Cannot use reserved words**
+   - Cannot use: `class`, `def`, `if`, `for`, `while`, `return`, `True`, `False`, `None`, etc.
+   - Your notes already list all the reserved words
+
+## 2.2 Expression
+
+Expressions can **manipulate variables**, such as adding one to x and storing the result back in x.
+
+### Operator Precedence Rules
+
+![](C:\work\preparation-monash\python\hello_world_demo\Assignment_PY4E\doc\assets\operator_precedence_rule.png)
+
+
+
+
+
+### Rmq:
+
+#### difference between `==` and `is`
+
+To clarify the difference between `==` and `is`:
+
+- `==` checks if the values of two objects are equal.
+- `is` checks if two references point to the same object in memory (identity).
+
+#### **+ operator**: 
+
+The plus operator behaves differently based on the types of its operands: it adds integers and concatenates strings.
+
+## 2.3 Reserved word
 
 A reserved word in Python, also known as a keyword, is a word that has a special meaning in the language and cannot be used for any other purpose, such as naming variables or functions. 
 
@@ -137,30 +181,80 @@ A reserved word in Python, also known as a keyword, is a word that has a special
 
 
 
+## 2.4 Build-in Function
+
+### Data type conversion
+
+**Data Types and Conversion**
+
+- Python distinguishes between integers (whole numbers) and floating-point numbers (numbers with decimals).
+- Built-in functions like `int()` and `float()` can convert between types, allowing for manipulation of data.
+
+### Input/output
+
+**Input Handling**
+
+- The `input()` function reads user input as a string, regardless of whether the input looks like a number.
+- Proper type conversion is necessary to perform arithmetic operations on user input.
 
 
-# Program Steps
 
-**Sequential Steps**
+
+
+# 3. Execution Flow
+
+
+
+## **Assignment Statement**
+
+an assignment statement is a process that assigns a value to a variable, not just a statement on its own.
+
+## **Sequential Steps**
 
 - **Def:** The most basic pattern is sequential, where instructions are executed one after another.
 - ex: An example is provided with a simple Python program that assigns a value to a variable and prints it.
 
-**Conditional Steps**
+## **Conditional Steps**
 
 - **Def:** Conditional programming involves using "if" statements to execute code based on certain conditions.
 - A flowchart illustrates how the program evaluates conditions and executes corresponding statements.
 
-**Looping Steps**
+## **Looping Steps**
 
 - The repeat pattern allows for executing a block of code multiple times using loops like "while" and "for."
 - The explanation includes how to avoid infinite loops by managing iteration variables, ensuring the loop terminates correctly.
 
 
 
-## Terminology
+# 4. Data types
 
-**iteration variable:** n is iteration variable
+
+
+## 4.1 Strings
+
+
+
+
+
+## 4.2 Files
+
+
+
+
+
+
+
+
+
+
+
+# 5. Terminology
+
+#### variable
+
+**iteration variable:** 
+
+n is iteration variable
 
 ~~~python
 n=5
@@ -172,8 +266,221 @@ print("Over")
 
 
 
-**Nesting** （嵌套）a loop or a conditional statement inside another loop or conditional statement. This allows you to create more complex behaviors in your programs.
+**Nesting** （嵌套）
+
+a loop or a conditional statement inside another loop or conditional statement. This allows you to create more complex behaviors in your programs.
+
+**indented:** 
+
+缩进 In Python, the way you can tell that a sequential code is when it's not being indented.
+
+**quotes**: 
+
+quotes(also quotation marks) [plural] a pair of marks (‘  ’) or ( “ ” ) placed around a word, sentence, etc. to show that it is what somebody said or wrote, that it is a title or that you are using it in an unusual way
+
+**underscore=underline**: 
+
+to draw a line under a word, sentence
 
 
 
-**indented:** 缩进 In Python, the way you can tell that a sequential code is when it's not being indented.
+#### operator rules
+
+1. **Operators: + - \* / %**
+2. **modulo operator(%): 取余**
+3. **odd values:** 奇数 （number%2≠0）
+4. **parentheses**: 圆括号
+5. **exponentiation**: 求幂
+6. **multiplication**: 乘法
+7. **subtraction**: 减法
+8. precedence: the condition of being more important than somebody else and therefore coming or being dealt with first
+9. quotient: a number which is the result when one number is divided by another
+10. remainder: the numbers left after one number has been subtracted from another, or one number has been divided into another差数；余数
+
+#### build-in function
+
+1. operand: the number on which an operation is to be done
+2. concatenate: link
+3. Tracebacks: An error?
+4. distinguish: to recognize the difference between two people or things
+5. Built-in functions:  existing as an essential part of something
+6. decimal: a&n 小数
+
+# 6. Errors
+
+6. Errors & Debugging
+│
+├── SyntaxError
+├── IndentationError
+├── TypeError
+├── ValueError
+└── try / except
+
+## 6.1 Syntax Error
+
+
+
+## 6.2 Indentation Error
+
+> ❗ 会的。Tabs 和 4 spaces 混用，确实会导致 Python 识别错误，而且是新手最常见、最隐蔽的坑之一。
+
+下面我用**非常清晰、工程化的方式**给你讲明白：**为什么会出问题、什么时候会出问题、以及你应该怎么做**。
+
+------
+
+### 一、Python 对缩进的“残酷事实”
+
+#### ✅ Python **不是“看起来一样就行”**
+
+Python **不是**像 Java / C 那样用 `{}`，而是：
+
+> 缩进 = 语法的一部分
+
+也就是说：
+
+- 缩进不对
+
+  → **语法就不对**
+
+- 混用缩进
+
+  → **解释器可能直接报错，或者更糟：逻辑错误**
+
+------
+
+### 二、Tabs vs Spaces：为什么会出问题？
+
+#### 表面看起来 👀
+
+```python
+if x >0:
+print("positive")
+```
+
+#### 实际上 Python 看到的是 👇
+
+- `Tab` ≠ `4 spaces`
+- Tab 是一个 **控制字符**
+- Python **按“字符”判断缩进层级**
+
+------
+
+### 三、典型错误示例（非常常见）
+
+#### ❌ 混用 Tab 和 Space
+
+```python
+if x >0:
+\\tprint("positive")# tab
+print("done")# 4 spaces
+```
+
+Python 可能报：
+
+```
+TabError: inconsistent use of tabs and spaces in indentation
+```
+
+或者在某些情况下：
+
+- **不报错**
+- 但程序逻辑错了（更危险）
+
+------
+
+### 四、Python 官方立场（很重要）
+
+📌 **PEP 8（Python 官方代码规范）明确规定：**
+
+> 👉 Use 4 spaces per indentation level.
+>
+> 👉 **Spaces are the preferred indentation method.**
+
+换句话说：
+
+- **Tab：不推荐**
+- **4 spaces：唯一正确姿势**
+
+------
+
+### 五、你在 Notepad / Notepad++ / 简单编辑器里要特别小心
+
+#### ⚠️ 为什么 Notepad 风险大？
+
+- 不会高亮显示 Tab
+- Tab 看起来像 spaces
+- 一旦混用，你**肉眼根本分不出来**
+
+#### 常见新手“中招场景”
+
+- 一开始用 Tab
+- 后来复制粘贴代码（spaces）
+- 程序突然报错，看不懂
+
+------
+
+### 六、强烈建议你这样做（实操级建议）
+
+#### ✅ 方案 1（最安全）：**只用 4 spaces，从不用 Tab**
+
+- 每一层缩进：**按 4 次空格**
+- 完全不要按 Tab 键
+
+📌 这是你现在阶段 **最稳的做法**
+
+------
+
+#### ✅ 方案 2（更推荐）：换一个“懂 Python 的编辑器”
+
+如果你愿意升级工具（强烈建议）：
+
+#### 👍 **VS Code**
+
+- 默认 Python = 4 spaces
+- 自动把 Tab 转成 spaces
+- 会直接提示缩进错误
+
+#### 👍 **PyCharm**
+
+- 工业级
+- 永远不会混用
+- 非常适合你未来 Monash 的作业
+
+------
+
+### 七、如何快速检查「有没有 Tab」
+
+如果你怀疑代码有问题：
+
+#### 方法 1（简单）
+
+- 全选代码
+- 删除缩进
+- 用 **空格重新缩进**
+
+#### 方法 2（编辑器）
+
+- 开启 “显示不可见字符”
+- 看是否有 `→`（Tab）
+
+
+
+### ✅ 一句话总结（你可以记住这一句）
+
+> Python 中：Tab 和 4 spaces 混用 = 潜在灾难 永远用 4 spaces，或者让编辑器替你管。
+
+
+
+## 6.3 Type Error
+
+**Type Errors and Tracebacks**
+
+- Python raises a TypeError when trying to combine incompatible types (e.g., a string and an integer).
+- Tracebacks provide information about errors, indicating where the issue occurred and the type of error.
+
+## 6.4 Value Error
+
+
+
+## 6.5 try/except
+
