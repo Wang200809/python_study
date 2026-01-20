@@ -203,6 +203,27 @@ A reserved word in Python, also known as a keyword, is a word that has a special
 
 # 3. Execution Flow
 
+### Rmq:
+
+1. Conditional statement order: Order conditions from smallest scope to largest scope(specific to general)
+   wrong example:
+
+~~~python
+# ❌ WRONG: Largest scope first (least restrictive first)
+age = int(input("Enter age: "))
+
+# WRONG: Check largest scope first
+if age >= 13:  # Scope: [13, ∞) - TOO BROAD! Catches both teenagers AND adults
+    print("Teenager")
+
+# This condition will NEVER execute!
+elif age >= 18:  # Scope: [18, ∞) - UNREACHABLE CODE!
+    print("Adult")
+
+else:
+    print("Child")
+~~~
+
 
 
 ## **Assignment Statement**
@@ -217,6 +238,18 @@ an assignment statement is a process that assigns a value to a variable, not jus
 ## **Conditional Steps**
 
 - **Def:** Conditional programming involves using "if" statements to execute code based on certain conditions.
+
+- ~~~python
+  # if  statement
+  age=int(input("Enter age: "))
+  if age>=18:
+      print("Adult")
+  elif age>=13:
+      print("Teenager")
+  else:
+      print("Child")
+  ~~~
+
 - A flowchart illustrates how the program evaluates conditions and executes corresponding statements.
 
 ## **Looping Steps**
@@ -371,7 +404,7 @@ print("positive")
 
 ```python
 if x >0:
-\\tprint("positive")# tab
+print("positive")# tab
 print("done")# 4 spaces
 ```
 
@@ -478,9 +511,63 @@ TabError: inconsistent use of tabs and spaces in indentation
 - Python raises a TypeError when trying to combine incompatible types (e.g., a string and an integer).
 - Tracebacks provide information about errors, indicating where the issue occurred and the type of error.
 
+### Example
+
+#### try except traceback error:
+
+~~~python
+age=None
+try:
+    age = int(input("Enter age: "))
+except ValueError:
+    print("Pls enter integer number as age")
+if age >= 18:
+    print("Adult")
+elif age >= 13:
+    print("Teenager")
+elif age <= 0:
+    print("Pls enter age larger than 0")
+else:
+    print("Child")
+
+~~~
+
+
+
+
+
 ## 6.4 Value Error
 
 
 
-## 6.5 try/except
+## 6.5 try except else
+
+In Python's `try...except...else` structure, the `else` block serves as a **success handler**.
+
+### The Role of `else`
+
+The code inside the `else` block executes **only if no exceptions were raised** in the `try` block.
+
+#### Key Benefits
+
+- **Separation of Concerns:** It separates the "risky" code (parsing input) from the "logic" code (processing the age).
+- **Avoids Over-Catching:** It ensures that you aren't accidentally catching `ValueErrors` that might occur inside your `if/elif` logic itself—it only handles the error from the `input` line.
+- **Clean Flow:** It prevents the `TypeError` you encountered by guaranteeing that `age` is a valid integer before any comparisons happen.
+
+```python
+try:
+    age = int(input("Enter age: "))
+except ValueError:
+    print("Invalid input!") # Runs ONLY if try FAILS
+else:
+    print("Valid age!")     # Runs ONLY if try SUCCEEDS
+    if age >= 18:           # Logic is now safe from TypeError
+        print("Adult")
+```
+
+
+
+~~~python
+
+~~~
 
