@@ -332,10 +332,139 @@ an assignment statement is a process that assigns a value to a variable, not jus
 
 ## **Looping Steps**
 
-- The repeat pattern allows for executing a block of code multiple times using loops like "while" and "for."
-- The explanation includes how to avoid infinite loops by managing iteration variables, ensuring the loop terminates correctly.
+A **loop** is a control structure that allows a program to execute a block of code repeatedly, which is essential for processing multiple values efficiently.
 
+------
 
+### 1. Why Use Loops
+
+- To perform **repetitive tasks** without duplicating code.
+- To process **collections of data** (numbers, strings, lists) one element at a time.
+- To derive results such as:
+  - maximum / minimum
+  - total
+  - count
+  - membership (filtering)
+
+------
+
+### 2. Types of Loops in Python
+
+#### 2.1 Indefinite Loops (`while`)
+
+- A `while` loop runs **as long as a condition is true**.
+- The condition is checked **before each iteration**.
+- An iteration variable must change inside the loop to avoid **infinite loops**.
+
+```
+while n > 0:
+    print(n)
+    n = n - 1
+```
+
+------
+
+#### 2.2 Definite Loops (`for`)
+
+- A `for` loop runs over a **known set of items**.
+- It is more predictable and easier to reason about.
+- Commonly used to iterate over lists, strings, or other collections.
+
+```
+for i in [5, 4, 3, 2, 1]:
+    print(i)
+```
+
+------
+
+### 3. Loop Control Statements
+
+- `break`: immediately exits the loop.
+- `continue`: skips the current iteration and moves to the next one.
+
+These statements allow finer control over loop execution and help prevent unintended behavior.
+
+------
+
+### 4. Loop Execution Model (How Loops Work)
+
+- A loop processes data **sequentially**, one item per iteration.
+- Variables are:
+  - initialized **before** the loop,
+  - updated **during** each iteration.
+- The final result is obtained **after all iterations complete**.
+
+This reflects how computers naturally process data step by step.
+
+------
+
+### 5. Common Loop Idioms (Patterns)
+
+#### 5.1 Counting
+
+- Use a counter variable to track how many times a loop runs.
+
+```
+count = 0
+for item in items:
+    count = count + 1
+```
+
+------
+
+#### 5.2 Totaling
+
+- Accumulate values to compute a sum.
+
+```
+total = 0
+for num in numbers:
+    total = total + num
+```
+
+------
+
+#### 5.3 Filtering
+
+- Use conditionals inside loops to select specific values.
+- Boolean variables can be used as **flags** to record whether a condition is met.
+
+------
+
+### 6. Finding the Largest Value
+
+- Initialize a variable before the loop.
+- Compare each value with the current largest value.
+- Update the variable when a larger value is found.
+
+```
+largest = -1
+for num in numbers:
+    if num > largest:
+        largest = num
+```
+
+------
+
+### 7. Finding the Smallest Value
+
+**Problem with Fixed Initial Values**
+
+- Initializing with a fixed number (e.g. `-1`) can produce incorrect results.
+
+**Using *None* as a Flag Value**
+
+- `None` indicates that no value has been seen yet.
+- The first value encountered becomes the initial smallest value.
+
+```
+smallest = None
+for num in numbers:
+    if smallest is None or num < smallest:
+        smallest = num
+```
+
+This approach is safer and more flexible.
 
 # 5. Data Structures
 
