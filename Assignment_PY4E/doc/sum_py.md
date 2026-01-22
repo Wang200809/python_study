@@ -181,7 +181,9 @@ A reserved word in Python, also known as a keyword, is a word that has a special
 
 
 
-## 2.4 Build-in Function
+# 3. Function
+
+## 3.1 Build-in Function
 
 ### Data type conversion
 
@@ -199,9 +201,85 @@ A reserved word in Python, also known as a keyword, is a word that has a special
 
 
 
+## 3.2 user-definite function
+
+### Definition of Function & Code Sample
+
+**Definition**
+ A function is a named block of code that is stored using `def` and executed only when called.
+
+**Code sample**
+
+```python
+def greet(name):
+    print("Hello", name)
+
+greet("Alice")
+```
+
+------
+
+### Why Use Functions
+
+- To **avoid code repetition** (DRY: Don’t Repeat Yourself).
+- To **store logic in one place** and reuse it multiple times.
+- To make programs **easier to read, modify, and maintain**.
+- To break a program into **smaller, manageable units**.
+
+------
+
+### Mechanism: How Functions Work in a Program (Invocation)
+
+- Defining a function **does not execute** its code.
+- When a function is **called (invoked)**:
+  1. Python temporarily jumps to the function code.
+  2. The function code is executed.
+  3. Python returns to the point where the function was called.
+- Python always **remembers where to continue execution** after the function finishes.
+
+------
+
+### How to Use Functions (Details)
+
+#### 3.1 Parameters and Arguments
+
+- **Parameters**:
+  - Variables in the function definition.
+  - Receive values when the function is called.
+- **Arguments**:
+  - Actual values passed into the function.
+- Argument order must match parameter order.
+
+```python
+def subtract(a, b):
+    return b-a
+print(subtract(1, 2))  
+```
 
 
-# 3. Execution Flow
+
+#### 3.2 Return Values
+
+- `return`:
+  - stops the function,
+  - sends a value back to the caller.
+- Returned values can be stored or used in expressions.
+
+------
+
+#### 3.3 Types of Functions
+
+- **Fruitful functions**:
+  - return a value.
+- **Non-fruitful functions**:
+  - do not return a value (return `None`).
+
+```python
+def say_hi():
+    print("Hi")   # non-fruitful
+```
+
+# 4. Execution Flow
 
 ### Rmq:
 
@@ -259,7 +337,7 @@ an assignment statement is a process that assigns a value to a variable, not jus
 
 
 
-# 4. Data types
+# 5. Data Structures
 
 
 
@@ -281,7 +359,7 @@ an assignment statement is a process that assigns a value to a variable, not jus
 
 
 
-# 5. Terminology
+# 6. Terminology
 
 #### variable
 
@@ -339,7 +417,7 @@ to draw a line under a word, sentence
 5. Built-in functions:  existing as an essential part of something
 6. decimal: a&n 小数
 
-# 6. Errors
+# 7. Errors
 
 6. Errors & Debugging
 │
