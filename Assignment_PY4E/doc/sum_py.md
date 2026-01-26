@@ -146,7 +146,7 @@ Expressions can **manipulate variables**, such as adding one to x and storing th
 
 ### Operator Precedence Rules
 
-![](C:\work\preparation-monash\python\hello_world_demo\Assignment_PY4E\doc\assets\operator_precedence_rule.png)
+![](C:\work\preparation-monash\python\hello_world_demo\Assignment_PY4E\doc\assets\01_string\operator_precedence_rule.png)
 
 
 
@@ -470,13 +470,171 @@ This approach is safer and more flexible.
 
 
 
-## 4.1 Strings
+## 5.1 Strings
+
+String is immutable, every change of string is a creation of new string.
+
+### Create
+
+#### Concatenation
+
+- The `+` operator is used to concatenate strings without automatically adding spaces; spaces must be explicitly included.
+- The `in` operator checks for the presence of a substring within a string, returning True or False.
+
+### Read(find)
+
+#### Index
+
+
+
+![](C:\work\preparation-monash\python\hello_world_demo\Assignment_PY4E\doc\assets\01_string\index_string.png)
+
+
+
+#### length
+
+~~~python
+>>>fruit="banana"
+>>>length=len(fruit)
+>>>print(length)
+6
+~~~
+
+#### in
+
+![image-20260126175954887](C:\work\preparation-monash\python\hello_world_demo\Assignment_PY4E\doc\assets\01_string\in.png)
+
+
+
+#### find
+
+![](C:\work\preparation-monash\python\hello_world_demo\Assignment_PY4E\doc\assets\01_string\find.png)
+
+
+
+#### parsing&extracting
+
+![](C:\work\preparation-monash\python\hello_world_demo\Assignment_PY4E\doc\assets\01_string\parsing&extracting.png)
 
 
 
 
 
-## 4.2 Files
+
+
+
+
+### Update
+
+#### **Converting**
+
+~~~python
+#name输入默认是string，按需转换成其他数据类型进行操作
+age = int(input('Enter:'))
+~~~
+
+#### Slicing
+
+| M    | o    | n    | t    | y    | ,    | p    | y    | t    | h    | o    | n    |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10   | 11   |
+
+~~~python
+>>> s="Monty,python"
+#end index num is not included 
+>>> print(s[0:4])
+Mont
+>>> print(s[5:6])
+,
+# without start index means from the first index
+>>> print(s[:2])
+Mo
+# no end index means untill to the end
+>>> print(s[10:])
+on
+~~~
+
+
+
+
+
+
+
+#### upper&lower
+
+![](C:\work\preparation-monash\python\hello_world_demo\Assignment_PY4E\doc\assets\01_string\upper&lower.png)
+
+
+
+#### Replace
+
+![](C:\work\preparation-monash\python\hello_world_demo\Assignment_PY4E\doc\assets\01_string\replace.png)
+
+### Delete
+
+
+
+### Iteration
+
+~~~python
+#while loop
+fruit='banana'
+index=0
+while index<len(fruit):
+    letter=fruit[index]
+    print(index,letter)
+    index=index+1
+
+#for loop is better!!!!
+fruit='banana'
+for letter in fruit:
+    print(letter)
+~~~
+
+
+
+
+
+### String Comparison and Methods
+
+- Strings can be compared using `==`, `<`, and `>`, with uppercase letters being less than lowercase letters.
+
+##### Python String Comparison Rules
+
+1. **Compare the first characters** using their **Unicode (ASCII) values**.
+2. **If they are equal, compare the next characters.**
+3. **Continue until a difference is found or one string ends.**
+   - If one string ends first, **the shorter string is smaller**.
+
+##### Examples
+
+~~~python
+"letter" > "Letter"`
+#because `l (108) > L (76)`
+"apple" < "apply"`
+#because `e (101) < y (121)`
+"cat" < "catalog"`
+#because `"cat"` ends first
+~~~
+
+~~~css
+65 ───────── 90     97 ───────── 122
+   A ... Z          	a ... z
+~~~
+
+
+
+- Strings are objects with built-in methods, such as `lower()`, which returns a lowercase copy without altering the original string.
+
+
+
+
+
+
+
+
+
+## 5.2 Files
 
 
 
@@ -747,7 +905,13 @@ else:
 
 
 
-## 6.5 try except else
+## 6.5 Reference Error
+
+### index error
+
+![image-20260126151534308](C:\work\preparation-monash\python\hello_world_demo\Assignment_PY4E\doc\assets\01_string\index_error.png)
+
+##  try except else
 
 In Python's `try...except...else` structure, the `else` block serves as a **success handler**.
 
