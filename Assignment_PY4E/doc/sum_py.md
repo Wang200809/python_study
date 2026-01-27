@@ -474,7 +474,7 @@ This approach is safer and more flexible.
 
 String is immutable, every change of string is a creation of new string.
 
-### Create
+
 
 #### Concatenation
 
@@ -635,6 +635,32 @@ for letter in fruit:
 
 
 ## 5.2 Files
+
+~~~python
+# 1. open file to load files in RAM as a variable
+file_variable=open("file_name",'mode')
+# file_name require the file in the same dic
+# mode: r: read  w: write
+# 2. newline(\n): indicate the end of a line
+>>> stuff='n\nm'
+>>> print(stuff)
+n
+m
+# 3. iterate file as lines
+file=open('test.txt')
+for line in file:
+    # wrong: print() add \n in the end of each line
+    print(line)
+	# correct: 
+	print(line.rstrip())
+# 4. read(): input the whole file(newlines and all) as a single string
+>>> input=file.read()
+>>> print(len(input))
+470
+
+~~~
+
+
 
 
 
