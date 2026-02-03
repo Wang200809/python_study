@@ -1,6 +1,10 @@
 import urllib.request
-
-url = "http://www.py4e.com/code3/romeo.txt"
+from urllib.parse import urlparse
+import os
+url = "http://www.py4e.com/code3/mbox-short.txt"
+# retrieve document name from url
+path = urlparse(url).path        # "/code3/mbox-short.txt"
+filename = os.path.basename(path)
 
 req = urllib.request.Request(
     url,
@@ -10,7 +14,7 @@ req = urllib.request.Request(
 with urllib.request.urlopen(req) as response:
     data = response.read().decode("utf-8")
 
-with open("romeo.txt", "w", encoding="utf-8") as f:
+with open(filename, "w", encoding="utf-8") as f:
     f.write(data)
 
-print("romeo.txt downloaded successfully")
+print(filename+" downloaded successfully")
