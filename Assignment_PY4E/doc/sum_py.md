@@ -472,74 +472,34 @@ This approach is safer and more flexible.
 
 ## 5.1 Strings
 
-String is immutable, every change of string is a creation of new string.
+String is **immutable**, every change of string is a creation of new string.
 
-
-
-#### Concatenation
-
-- The `+` operator is used to concatenate strings without automatically adding spaces; spaces must be explicitly included.
-- The `in` operator checks for the presence of a substring within a string, returning True or False.
-
-### Read(find)
-
-#### Index
-
-
-
-![](C:\work\preparation-monash\python\hello_world_demo\Assignment_PY4E\doc\assets\01_string\index_string.png)
-
-
-
-#### length
-
-~~~python
->>>fruit="banana"
->>>length=len(fruit)
->>>print(length)
-6
-~~~
-
-#### in
-
-![image-20260126175954887](C:\work\preparation-monash\python\hello_world_demo\Assignment_PY4E\doc\assets\01_string\in.png)
-
-
-
-#### find
-
-![](C:\work\preparation-monash\python\hello_world_demo\Assignment_PY4E\doc\assets\01_string\find.png)
-
-
-
-#### parsing&extracting
-
-![](C:\work\preparation-monash\python\hello_world_demo\Assignment_PY4E\doc\assets\01_string\parsing&extracting.png)
-
-
-
-
-
-
-
-
-
-### Update
-
-#### **Converting**
-
-~~~python
-#name输入默认是string，按需转换成其他数据类型进行操作
-age = int(input('Enter:'))
-~~~
-
-#### Slicing
+| b    | a    | n    | a    | n    | a    |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+| 0    | 1    | 2    | 3    | 4    | 5    |
 
 | M    | o    | n    | t    | y    | ,    | p    | y    | t    | h    | o    | n    |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10   | 11   |
 
+
+
 ~~~python
+>>> s1='ban'
+>>> s2='ana'
+>>> n='10'
+>>> concatenation=s1+s2
+# 1. Concatenation and in
+>>> print(concatenation)
+banana
+>>> print('a' in s1)
+True
+# 2. converting
+>>> print(int(n)-1)
+9
+# 3. index and slicing
+>>> print(concatenation[0:2])
+ba
 >>> s="Monty,python"
 #end index num is not included 
 >>> print(s[0:4])
@@ -552,27 +512,31 @@ Mo
 # no end index means untill to the end
 >>> print(s[10:])
 on
+# 4. length
+>>>fruit="banana"
+>>>length=len(fruit)
+>>>print(length)
+6
+# 5. find(): find the first occurrence of the substring
+>>> concatenation.find('na')
+2
+# 6. upper lower
+>>> print(name.upper())
+BOB
+>>> print(name.lower())
+bob
+
 ~~~
 
+#### parsing&extracting
 
-
-
-
-
-
-#### upper&lower
-
-![](C:\work\preparation-monash\python\hello_world_demo\Assignment_PY4E\doc\assets\01_string\upper&lower.png)
+![](C:\work\preparation-monash\python\hello_world_demo\Assignment_PY4E\doc\assets\01_string\parsing&extracting.png)
 
 
 
 #### Replace
 
 ![](C:\work\preparation-monash\python\hello_world_demo\Assignment_PY4E\doc\assets\01_string\replace.png)
-
-### Delete
-
-
 
 ### Iteration
 
@@ -666,9 +630,143 @@ for line in file:
 
 
 
+## 5.3 Lists
+
+### Intro
+
+**Understanding Algorithms and Data Structures**
+
+- Algorithms: A set of rules or steps used to solve a problem
+- Data structures: A particular way of organizing data in a computer
 
 
 
+~~~python
+# 1. Introduction
+# Lists can hold multiple values in a single variable even another list
+>>> list=[1,'red',[5,6.01]]
+>>> print(list)
+[1, 'red', [5, 6.01]]
+# list could be empty
+>>> empty_list=[]
+>>> print(empty_list)
+[]
+# 2. Mutable list
+>>> list[0]=2
+>>> print(list)
+[2, 'red', [5, 6.01]]
+# 3. length of a list
+>>> print(len(list))
+3
+# 4. range function: 
+# return a list of numbers that rane from zero to one less than the parameter
+# use it as an index during iteration
+list_01 = [2, 'red', [5, 6.01]]
+print("list before iteration: "+str(list_01))
+for i in range(len(list_01)):
+    print(i)
+    if i+1 < len(list_01):
+        temp = list_01[i]
+        list_01[i] = list_01[i + 1]
+        list_01[i + 1] = temp
+    print("list current status: "+str(list_01))
+print("list after iteration: "+str(list_01))
+
+
+~~~
+
+
+
+Mutable vs. Immutable Data Types
+
+- Lists are mutable, meaning their contents can be changed, while strings are immutable and cannot be altered directly.
+- The lecture explains how to access and modify list elements using indexing.
+
+Using Lists in Loops
+
+- The lecture discusses how to iterate through lists using loops, emphasizing the use of the `for` loop and the `range` function for indexed access.
+- It highlights the importance of understanding the index positions when working with lists.
+
+This summary captures the key points of the lecture on data structures, particularly focusing on lists and their functionalities in Python programming.
+
+### Manipulate list
+
+~~~python
+# 1. concatenating list
+>>> a=[1,2]
+>>> b=[3,4]
+>>> print(a+b)
+[1, 2, 3, 4]
+# 2. slicing as a string
+>>> c=a+b
+>>> c[:2]
+[1, 2]
+>>> c[1:2]
+[2]
+>>> c[2:]
+[3, 4]
+>>> c[:]
+[1, 2, 3, 4]
+# 3. building a list from Scratch
+>>> d=list()
+>>> d.append('hahahah')
+>>> print(d)
+['hahahah']
+# 4. Is sth in a list?
+>>> 'ha' in d
+False
+>>> 'hahahah' in d
+True
+# 5. sort
+>>> d.sort()
+Traceback (most recent call last):
+  File "<python-input-8>", line 1, in <module>
+    d.sort()
+    ~~~~~~^^
+TypeError: '<' not supported between instances of 'int' and 'str'
+>>> d.remove(0)
+>>> d.append("you")
+>>> d.sort()
+>>> d[]
+  File "<python-input-12>", line 1
+    d[]
+    ^
+SyntaxError: invalid syntax. Did you mean 'del'?
+>>> d[:]
+['hahahah', 'you']
+
+# 6. split
+# defaut split with space
+>>> abc='How are you?'
+>>> group=abc.split()
+>>> print(group)
+['How', 'are', 'you?']
+>>> for g in group:
+...     print(g)
+...
+How
+are
+you?
+# indicate the split signal
+>>> line='alice;bob;camille'
+>>> friends=line.split()
+>>> print(friends)
+['alice;bob;camille']
+>>> friends=line.split(";")
+>>> print(friends)
+['alice', 'bob', 'camille']
+
+~~~
+
+
+
+### Terminology:
+
+| EN             | CN   | EN   | CN   | EN   | CN   |
+| -------------- | ---- | ---- | ---- | ---- | ---- |
+| square bracket | [ ]  |      |      |      |      |
+|                |      |      |      |      |      |
+|                |      |      |      |      |      |
 
 
 
@@ -741,6 +839,22 @@ to draw a line under a word, sentence
 └── try / except
 
 ## 6.1 Syntax Error
+
+### String related
+
+#### unterminated string literal
+
+***SyntaxError: unterminated string literal (detected at line 26)***
+
+```python
+s1="This is a
+test string"
+print(s1)
+# reason：double quotes doesn't allow a line break in the mid
+# solution: use """""", tripple quotes are multi-line strings
+s2="""This is a
+test string"""
+```
 
 
 
