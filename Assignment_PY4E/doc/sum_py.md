@@ -770,6 +770,109 @@ you?
 
 
 
+## 5.4 Dictionaries
+
+### Intro
+
+Like HashMap in Java
+
+~~~python
+>>> d1={"alice":13}
+>>> d2={"dic":d1}
+>>> print(d2)
+{'dic': {'alice': 13}}
+>>> d3={"d1":d1,"d2":d2}
+>>> print(d3)
+{'d1': {'alice': 13}, 'd2': {'dic': {'alice': 13}}}
+~~~
+
+
+
+### manipulate
+
+~~~python
+# ==================== 1. 创建字典 ====================
+# 方式1：直接创建空字典
+empty_dict = {}
+# 方式2：创建带初始值的字典
+person = {
+    "name": "Alice",
+    "age": 25,
+    "city": "Beijing",
+    "hobbies": ["reading", "running"]  # 值可以是列表
+}
+# 方式3：通过 dict() 函数创建
+fruit = dict(apple=3, banana=5, orange=2)
+
+# ==================== 2. 访问字典的值 ====================
+# 方式1：通过键访问（最常用）
+print(person["name"])  # 输出: Alice
+# 方式2：通过 get() 方法（推荐，键不存在时不会报错）
+print(person.get("age"))  # 输出: 25
+print(person.get("gender", "unknown")+1)  # 键不存在时返回默认值: unknown, 如果存在则+1
+if key in counts:
+    counts[key] = counts[key] + 1
+else:
+    counts[key] = 1
+
+# ==================== 3. 添加/修改键值对 ====================
+# 添加新键值对（键不存在时）
+person["gender"] = "female"
+# 修改已有键的值（键存在时）
+person["age"] = 26
+print(person)  # 输出: {'name': 'Alice', 'age': 26, 'city': 'Beijing', 'hobbies': ['reading', 'running'], 'gender': 'female'}
+
+# ==================== 4. 删除键值对 ====================
+# 方式1：del 语句（删除指定键，键不存在会报错）
+del person["city"]
+# 方式2：pop() 方法（删除并返回对应值，可指定默认值）
+hobbies = person.pop("hobbies")
+print(hobbies)  # 输出: ['reading', 'running']
+# 方式3：popitem() 方法（删除并返回最后插入的键值对，3.7+ 有序）
+last_item = person.popitem()
+print(last_item)  # 输出: ('gender', 'female')
+# 方式4：clear() 清空所有键值对
+fruit.clear()
+print(fruit)  # 输出: {}
+
+# ==================== 5. 遍历字典 ====================
+# 遍历所有键
+for key in person.keys():
+    print(key)  # 输出: name, age
+
+# 遍历所有值
+for value in person.values():
+    print(value)  # 输出: Alice, 26
+
+# 遍历所有键值对（最常用）
+for key, value in person.items():
+    print(f"{key}: {value}")  # 输出: name: Alice, age: 26
+
+# ==================== 6. 其他常用操作 ====================
+# 判断键是否存在
+print("name" in person)  # 输出: True
+print("city" in person)  # 输出: False
+
+# 获取字典长度（键值对数量）
+print(len(person))  # 输出: 2
+
+# 合并两个字典（3.9+ 语法）
+dict1 = {"a": 1, "b": 2}
+dict2 = {"b": 3, "c": 4}
+merged_dict = dict1 | dict2
+print(merged_dict)  # 输出: {'a': 1, 'b': 3, 'c': 4}
+
+# 复制字典（浅拷贝）
+person_copy = person.copy()
+person_copy["age"] = 27
+print(person)  # 原字典不变: {'name': 'Alice', 'age': 26}
+print(person_copy)  # 拷贝字典修改: {'name': 'Alice', 'age': 27}
+~~~
+
+
+
+
+
 # 6. Terminology
 
 #### variable
@@ -796,17 +899,45 @@ a loop or a conditional statement inside another loop or conditional statement. 
 
 缩进 In Python, the way you can tell that a sequential code is when it's not being indented.
 
-**quotes**: 
+### Signal
 
-quotes(also quotation marks) [plural] a pair of marks (‘  ’) or ( “ ” ) placed around a word, sentence, etc. to show that it is what somebody said or wrote, that it is a title or that you are using it in an unusual way
+| Symbol | English name              | Symbol | English name         |
+| ------ | ------------------------- | ------ | -------------------- |
+| `,`    | comma                     | `@`    | at                   |
+| `.`    | dot / period              | `#`    | hash                 |
+| `?`    | question mark             | `$`    | dollar sign          |
+| `!`    | exclamation mark          | `%`    | percent              |
+| `:`    | colon                     | `^`    | caret                |
+| `;`    | semicolon                 | `&`    | ampersand            |
+| `'`    | apostrophe / single quote | `*`    | asterisk             |
+| `"`    | double quote              | `_`    | underscore/underline |
+| ```    | backtick                  | `~`    | tilde                |
 
-**underscore=underline**: 
-
-to draw a line under a word, sentence
 
 
+| Brackets Symbol | English name          |
+| --------------- | --------------------- |
+| `( )`           | parentheses           |
+| `[ ]`           | square brackets       |
+| `{ }`           | curly braces / braces |
+| `< >`           | angle brackets        |
 
-#### operator rules
+| Operators Symbol | English name          |
+| ---------------- | --------------------- |
+| `=`              | equals                |
+| `==`             | double equals         |
+| `!=`             | not equal             |
+| `>`              | greater than          |
+| `<`              | less than             |
+| `>=`             | greater than or equal |
+| `<=`             | less than or equal    |
+| `+`              | plus                  |
+| `-`              | minus                 |
+| `*`              | multiply              |
+| `/`              | divide                |
+| `%`              | modulo 取余           |
+
+
 
 1. **Operators: + - \* / %**
 2. **modulo operator(%): 取余**
@@ -819,7 +950,7 @@ to draw a line under a word, sentence
 9. quotient: a number which is the result when one number is divided by another
 10. remainder: the numbers left after one number has been subtracted from another, or one number has been divided into another差数；余数
 
-#### build-in function
+### build-in function
 
 1. operand: the number on which an operation is to be done
 2. concatenate: link
