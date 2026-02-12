@@ -871,6 +871,35 @@ print(person_copy)  # 拷贝字典修改: {'name': 'Alice', 'age': 27}
 
 
 
+## 5.5 Tuples
+
+### Intro
+
+**1. immutable**
+
+| List                                                         | String                                                       | tuples                                                       |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| >>> x=[1,2,3]<br />>>> x[0]=3131<br/>>>> print(x)<br/>[3131, 2, 3] | >>> y='123'<br/>>>> y[0]='a'<br/>Traceback (most recent call last):<br/>  File "<python-input-5>", line 1, in <module><br/>    y[0]='a'<br/>    ~^^^<br/>TypeError: 'str' object does not support item assignment | >>> z=(1,2,3)<br/>>>> z[0]=1313<br/>Traceback (most recent call last):<br/>  File "<python-input-7>", line 1, in <module><br/>    z[0]=1313<br/>    ~^^^<br/>TypeError: 'tuple' object does not support item assignment |
+
+**2. more efficient**
+
+Since tuples are immutable, PVM in main memory doesn't have to leave more space for future modification about it.
+
+
+
+**3. assignment**
+
+~~~python
+>>> (x,y)=(4,'f')
+>>> print(x)
+4
+# dictionay assign
+>>> d={'alice':1,'bob':2}
+>>> tups=d.items()
+>>> print(tups)
+dict_items([('alice', 1), ('bob', 2)])
+~~~
+
 
 
 # 6. Terminology
