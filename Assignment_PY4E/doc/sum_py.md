@@ -902,6 +902,57 @@ dict_items([('alice', 1), ('bob', 2)])
 
 
 
+**4. Comparable**
+
+Rule: If the first item is equal pvm goes on to the next element, and so on, until it finds elements that differ.
+
+~~~python
+>>> (0,1,9)<(0,9,1)
+True
+>>> ('J','sal')<('J','sam')
+True
+~~~
+
+**5. Sorting**
+
+Since tuples are comparable, we could **sort tuples.**
+
+~~~python
+>>> d={'q':333,'a':2,'b':1}
+>>> d.items()
+dict_items([('q', 333), ('a', 2), ('b', 1)])
+>>> sorted(d.items())
+[('a', 2), ('b', 1), ('q', 333)]
+
+~~~
+
+sort by values instead of key: construct a list of tuples
+
+~~~python
+>>> tmp=list()
+>>> for k,v in d.items():
+...     item=(v,k)
+...     tmp.append(item)
+... print(tmp)
+...
+[(333, 'q'), (2, 'a'), (1, 'b')]
+>>> sorted(tmp)
+[(1, 'b'), (2, 'a'), (333, 'q')]
+>>> sorted(tmp,reverse=True)
+[(333, 'q'), (2, 'a'), (1, 'b')]
+# Shorted version
+>>> print(sorted([(v,k) for k,v in d.items()]))
+[(1, 'b'), (2, 'a'), (333, 'q')]
+>>> print(sorted([(v,k) for k,v in d.items()], reverse=True))
+[(333, 'q'), (2, 'a'), (1, 'b')]
+~~~
+
+
+
+
+
+
+
 # 6. Terminology
 
 #### variable
